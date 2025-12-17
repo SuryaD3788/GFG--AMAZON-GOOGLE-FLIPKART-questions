@@ -1,0 +1,22 @@
+class Solution {
+  public:
+    vector<int> remDuplicate(vector<int>& arr) {
+        // code here
+        int i=0;
+        unordered_set<int>mp;
+        for(int j=0;j<arr.size();j++)
+        {
+            if(mp.find(arr[j])==mp.end())
+            {
+                 mp.insert(arr[j]);
+                
+                arr[i]=arr[j];
+                i++;
+                
+            }
+            
+        }
+        arr.resize(i);
+        return arr;
+    }
+};

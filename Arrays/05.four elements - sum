@@ -1,0 +1,30 @@
+bool find4Numbers(int A[], int n, int X) {
+    sort(A,A+n);
+    for(int i=0;i<n;i++)
+    {
+        if(i>0 && A[i]==A[i-1]) continue;
+        for(int j=i+1;j<n;j++)
+        {
+            if(j>i+1 && A[j]==A[j-1]) continue;
+            int k=j+1;
+            int l=n-1;
+            while(k<l)
+            {
+            long long sum=A[i];
+            sum+=A[j];
+            sum+=A[k];
+            sum+=A[l];
+            if(sum==X)
+            {
+                return true;
+            }
+            else if(sum>X) l--;
+            else{
+                k++;
+            }
+        }
+        }
+    
+    }
+       return false; 
+}
